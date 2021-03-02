@@ -17,6 +17,8 @@
                         Welcome to Admin,
                         <small>User</small>
                     </h1>
+
+
                     <div class="col-xs-6">
                         <form action="">
                             <div class="form-group">
@@ -28,17 +30,36 @@
                             </div>
 
                         </form>
+                    </div> <!-- Add Cathegory FORM -->
+
+                    <div class="col-xs-6">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Category Title</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Category 1</td>
+                                    <td>Category 2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
                     </div>
                 </div>
+                <!-- /.row -->
+
             </div>
-            <!-- /.row -->
+            <!-- /.container-fluid -->
 
         </div>
-        <!-- /.container-fluid -->
+        <!-- /#page-wrapper -->
 
     </div>
-    <!-- /#page-wrapper -->
-
-</div>
-<!-- /#wrapper -->
-<?php include 'includes/footer.php' ?>
+    <!-- /#wrapper -->
+    <?php include 'includes/footer.php' ?>
