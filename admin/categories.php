@@ -33,7 +33,8 @@
                     </div> <!-- Add Cathegory FORM -->
 
                     <div class="col-xs-6">
-                        <table class="table table-bordered table-hover">
+                        <table class="table table-bordered table-hover
+                        ">
                             <thead>
                                 <tr>
                                     <th>Id</th>
