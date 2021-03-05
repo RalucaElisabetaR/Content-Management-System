@@ -3,31 +3,31 @@
 <div id="wrapper">
 
 
- <!-- Navigation -->
- <?php include "includes/admin_navigation.php" ?>
+  <!-- Navigation -->
+  <?php include "includes/admin_navigation.php" ?>
 
- <div id="page-wrapper">
+  <div id="page-wrapper">
 
-  <div class="container-fluid">
+    <div class="container-fluid">
 
-   <!-- Page Heading -->
-   <div class="row">
-    <div class="col-lg-12">
+      <!-- Page Heading -->
+      <div class="row">
+        <div class="col-lg-12">
 
-     <h1 class="page-header">
-      Welcome to Admin,
-      <small>User</small>
-     </h1>
+          <h1 class="page-header">
+            Welcome to Admin,
+            <small>User</small>
+          </h1>
+
+        </div>
+      </div>
+      <!-- /.row -->
 
     </div>
-   </div>
-   <!-- /.row -->
+    <!-- /.container-fluid -->
 
   </div>
-  <!-- /.container-fluid -->
-
- </div>
- <!-- /#page-wrapper -->
+  <!-- /#page-wrapper -->
 
 </div>
 <!-- /#wrapper -->
