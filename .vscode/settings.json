@@ -1,0 +1,11 @@
+{
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "workbench.editor.tabSizing": "shrink",
+    "files.trimTrailingWhitespace": true,
+    "editor.autoIndent": "advanced",
+    "workbench.tree.indent": 6,
+    "html.format.indentInnerHtml": true,
+    "prettier.useTabs": true,
+    "html.format.indentHandlebars": true
+}

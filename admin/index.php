@@ -2,32 +2,32 @@
 
 <div id="wrapper">
 
-   
-    <!-- Navigation -->
-    <?php include "includes/admin_navigation.php" ?>
 
-    <div id="page-wrapper">
+ <!-- Navigation -->
+ <?php include "includes/admin_navigation.php" ?>
 
-        <div class="container-fluid">
+ <div id="page-wrapper">
 
-            <!-- Page Heading -->
-            <div class="row">
-                <div class="col-lg-12">
+  <div class="container-fluid">
 
-                    <h1 class="page-header">
-                        Welcome to Admin,
-                        <small>User</small>
-                    </h1>
+   <!-- Page Heading -->
+   <div class="row">
+    <div class="col-lg-12">
 
-                </div>
-            </div>
-            <!-- /.row -->
-
-        </div>
-        <!-- /.container-fluid -->
+     <h1 class="page-header">
+      Welcome to Admin,
+      <small>User</small>
+     </h1>
 
     </div>
-    <!-- /#page-wrapper -->
+   </div>
+   <!-- /.row -->
+
+  </div>
+  <!-- /.container-fluid -->
+
+ </div>
+ <!-- /#page-wrapper -->
 
 </div>
 <!-- /#wrapper -->
