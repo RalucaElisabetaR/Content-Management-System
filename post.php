@@ -168,7 +168,7 @@
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button">
                                 <span class="glyphicon glyphicon-search"></span>
-                        </button>
+                            </button>
                         </span>
                     </div>
                     <!-- /.input-group -->
@@ -223,7 +223,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy;2021 Raluca Elisabeta Rusu </p>
                 </div>
             </div>
             <!-- /.row -->

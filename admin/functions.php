@@ -41,7 +41,7 @@ function findAllCategories()
 
 function deleteCategories()
 {
-global $connection;
+  global $connection;
   if (isset($_GET['delete'])) {
     $the_cat_id = $_GET['delete'];
     $query = "DELETE FROM categories WHERE cat_id = {$the_cat_id} ";
