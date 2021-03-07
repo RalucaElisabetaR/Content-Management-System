@@ -46,16 +46,6 @@
 
     ?>
 
-    <td>10</td>
-    <td>Raluca Elisabeta Rusu</td>
-    <td>Bootstrap framework</td>
-    <td>Bootstrap</td>
-    <td>Status</td>
-    <td>Image</td>
-    <td>Tags</td>
-    <td>Comments</td>
-    <td>Date</td>
-    </tr>
   </tbody>
 
 </table>
