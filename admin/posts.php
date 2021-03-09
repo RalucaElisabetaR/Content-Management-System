@@ -17,36 +17,29 @@
             Welcome to Admin,
             <small>User</small>
           </h1>
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Author</th>
-                <th>Title</th>
-                <th>Cathegory</th>
-                <th>Status</th>
-                <th>Image</th>
-                <th>Tags</th>
-                <th>Comments</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>10</td>
-                <td>Raluca Elisabeta Rusu</td>
-                <td>Bootstrap framework</td>
-                <td>Bootstrap</td>
-                <td>Status</td>
-                <td>Image</td>
-                <td>Tags</td>
-                <td>Comments</td>
-                <td>Date</td>
-              </tr>
-            </tbody>
+          <?php
 
-          </table>
+          if (isset($_GET['source'])) {
+            $source = $_GET['source'];
+          } else {
+            $source = '';
+          }
+          switch ($source) {
+            case 'add_post';
+              include "includes/add_post.php";
+              break;
+            case 'edit_post';
+              include "includes/edit_post.php";
+              break;
 
+            default:
+              include "includes/view_all_posts.php";
+              break;
+          }
+
+
+
+          ?>
 
         </div>
       </div>
