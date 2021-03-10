@@ -34,18 +34,18 @@ if (isset($_POST['update_post'])) {
   $post_content = $_POST['post_content'];
   $post_tags = $_POST['post_tags'];
 
-  move_uploaded_file($post_image_temp, "../images/$post_image ");
+  move_uploaded_file($post_image_temp, "../images/$post_image");
 
   if (empty($post_image)) {
     $query = "SELECT * FROM posts WHERE posts_id = $the_post_id ";
     $select_image = mysqli_query($connection, $query);
     while ($row = mysqli_fetch_array($select_image)) {
-
       $post_image = $row['post_image'];
     }
   }
 
   $post_title = mysqli_real_escape_string($connection, $post_title);
+
   $query = "UPDATE posts SET ";
   $query .= "post_title = '{$post_title}', ";
   $query .= "post_category_id = '{$post_category_id}', ";
@@ -60,6 +60,7 @@ if (isset($_POST['update_post'])) {
   $update_post = mysqli_query($connection, $query);
 
   confirmQuery($update_post);
+  echo "<p class='bg-success'>Post Updated. <a href='../post.php?p_id={$the_post_id}'>View Post </a> or <a href='posts.php'>Edit More Posts</a></p>";
 }
 
 
@@ -69,6 +70,9 @@ if (isset($_POST['update_post'])) {
 
 
 <form action="" method="post" enctype="multipart/form-data">
+
+
+
   <div class="form-group">
     <label for="title">Post Title</label>
     <input value="<?php echo $post_title; ?>" type="text" class="form-control" name="post_title">
@@ -85,14 +89,19 @@ if (isset($_POST['update_post'])) {
 
       confirmQuery($select_categories);
 
-      if ($cat_id == $post_category_id) {
+      while ($row = mysqli_fetch_assoc($select_categories)) {
+        $cat_id = $row['cat_id'];
+        $cat_title = $row['cat_title'];
 
-        echo "<option selected value='$cat_id'>{$cat_title}</option>";
-      } else {
 
-        echo "<option value='$cat_id'>{$cat_title}</option>";
+        if ($cat_id == $post_category_id) {
+
+          echo "<option selected value='$cat_id'>{$cat_title}</option>";
+        } else {
+
+          echo "<option value='$cat_id'>{$cat_title}</option>";
+        }
       }
-
 
       ?>
 
