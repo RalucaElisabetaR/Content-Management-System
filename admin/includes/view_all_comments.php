@@ -62,7 +62,7 @@
 
 
 
-      echo "<td>{$comment_date}</td>";
+      echo "<td> $comment_date</td>";
 
       echo "<td><a href='comments.php?approve=$comment_id'>Approve</a></td>";
       echo "<td><a href='comments.php?reject=$comment_id'>Reject</a></td>";
@@ -84,26 +84,29 @@
 if (isset($_GET['approve'])) {
 
   $the_comment_id = $_GET['approve'];
-  $query = "UPDATE comments SET comment_status = 'Approved' WHERE comment_id = $the_comment_id ";
+  $query = "UPDATE comments SET comment_status = 'approved' WHERE comment_id = $the_comment_id ";
   $approve_comment_query = mysqli_query($connection, $query);
   header("Location: comments.php");
+  exit;
 }
 
 
 if (isset($_GET['reject'])) {
 
   $the_comment_id = $_GET['reject'];
-  $query = "UPDATE comments SET comment_status = 'Rejected' WHERE comment_id = $the_comment_id ";
+  $query = "UPDATE comments SET comment_status = 'rejected' WHERE comment_id = $the_comment_id ";
   $reject_comment_query = mysqli_query($connection, $query);
   header("Location: comments.php");
+  exit;
 }
 
 
 if (isset($_GET['delete'])) {
-  $the_post_id = $_GET['delete'];
-  $query = "DELETE FROM posts WHERE post_id = {$the_post_id} ";
+  $the_comment_id = $_GET['delete'];
+  $query = "DELETE FROM comments WHERE comment_id = {$the_comment_id} ";
   $delete_query = mysqli_query($connection, $query);
   header("Location: comments.php");
+  exit;
 }
 
 
