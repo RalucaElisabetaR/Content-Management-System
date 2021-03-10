@@ -54,7 +54,7 @@
         $post_id = $row['post_id'];
         $post_title = $row['post_title'];
 
-        echo "<td><a href='../post.php?p_id=$post_id'>$post_title</a></td>";
+        echo "<td><a href=''></a>$post_title</td>";
       }
 
 
@@ -64,8 +64,8 @@
 
       echo "<td>{$comment_date}</td>";
 
-      echo "<td><a href='posts.php?source=edit_post&p_id='>Aprove</a></td>";
-      echo "<td><a href='posts.php?delete='>Reject</a></td>";
+      echo "<td><a href='comments.php?approve=$comment_id'>Approve</a></td>";
+      echo "<td><a href='comments.php?reject=$comment_id'>Reject</a></td>";
 
 
       echo "<td><a href='comments.php?delete=$comment_id'>Delete</a></td>";
@@ -80,12 +80,30 @@
 
 <?php
 
-if (isset($_GET['delete'])) {
 
-  $the_comment_id = $_GET['delete'];
-  $query = "DELETE FROM comments WHERE comment_id = {$the_comment_id} ";
+if (isset($_GET['approve'])) {
+
+  $the_comment_id = $_GET['approve'];
+  $query = "UPDATE comments SET comment_status = 'Approved' WHERE comment_id = $the_comment_id ";
+  $approve_comment_query = mysqli_query($connection, $query);
+  header("Location: comments.php");
+}
+
+
+if (isset($_GET['reject'])) {
+
+  $the_comment_id = $_GET['reject'];
+  $query = "UPDATE comments SET comment_status = 'Rejected' WHERE comment_id = $the_comment_id ";
+  $reject_comment_query = mysqli_query($connection, $query);
+  header("Location: comments.php");
+}
+
+
+if (isset($_GET['delete'])) {
+  $the_post_id = $_GET['delete'];
+  $query = "DELETE FROM posts WHERE post_id = {$the_post_id} ";
   $delete_query = mysqli_query($connection, $query);
-  header("location: comments.php");
+  header("Location: comments.php");
 }
 
 
