@@ -32,7 +32,7 @@ if (isset($_POST['create_post'])) {
   </div>
 
   <div class="form-group">
-    <label for="post_category">Post Category Id</label>
+    <label for="post_category">Category</label>
     <select name="post_category" id="">
 
       <?php
