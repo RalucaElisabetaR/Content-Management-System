@@ -11,8 +11,10 @@
 
     <!-- Blog Entries Column -->
     <div class="col-md-8">
+
+
       <?php
-      $query = "SELECT * FROM posts WHERE post_status = 'published' ";
+      $query = "SELECT * FROM posts WHERE post_status = 'Published' ";
       $select_all_posts_query = mysqli_query($connection, $query);
 
 
@@ -26,7 +28,7 @@
         $post_status = $row['post_status'];
 
         if ($post_status !== 'published') {
-          echo "<h1> NO POSTS, SORRY. </h1>";
+          die("<h1> NO POSTS, SORRY. </h1>");
         }
 
 
