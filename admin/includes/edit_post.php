@@ -51,8 +51,8 @@ if (isset($_POST['update_post'])) {
 
   if (empty($post_image)) {
     $query = "SELECT * FROM posts WHERE posts_id = $the_post_id ";
-    $select_image = mysqli_query($connection, $query);
-    while ($row = mysqli_fetch_array($select_image)) {
+    $select_post_image = mysqli_query($connection, $query);
+    while ($row = mysqli_fetch_array($select_post_image)) {
       $post_image = $row['post_image'];
     }
   }
@@ -117,8 +117,24 @@ if (isset($_POST['update_post'])) {
   </div>
 
   <div class="form-group">
-    <label for="post_status">Post Status</label>
-    <input value="<?php echo $post_status; ?>" type="text" class="form-control" name="post_status">
+
+    <select name="post_status" id="post_status">
+
+      <option value="<?php $post_status; ?>"><?php echo $post_status; ?></option>
+
+      <?php
+
+      if ($post_status == 'Published') {
+        echo "<option value='Draft'> Draft </option>";
+      } else {
+        echo "<option value='Published'> Published </option>";
+      }
+
+
+      ?>
+
+
+    </select>
   </div>
 
   <div class="form-group">
