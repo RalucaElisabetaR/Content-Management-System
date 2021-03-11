@@ -72,12 +72,12 @@ if (isset($_POST['edit_user'])) {
 
     <select name="user_role" id="">
 
-      <option value="<?php $user_role; ?>"><?php echo $user_role; ?></option>
+      <option value="<?php "subscriber" ?>"><?php echo $user_role; ?></option>
 
       <?php
 
-      if ($user_role == 'Admin') {
-        echo "<option value='subscriber'> Guest User </option>";
+      if ($user_role == 'admin') {
+        echo "<option value='subscriber'> subscriber </option>";
       } else {
         echo "<option value='admin'> Admin </option>";
       }
