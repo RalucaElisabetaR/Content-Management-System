@@ -47,8 +47,8 @@ if (isset($_POST['create_user'])) {
 
     <select name="user_role" id="">
       <option value="subscriber">Select Option</option>
-      <option value="admin">Admin</option>
-      <option value="subscriber">Guest User</option>
+      <option value="admin">admin</option>
+      <option value="subscriber">subscriber</option>
 
 
 
