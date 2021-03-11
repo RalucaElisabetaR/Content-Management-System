@@ -45,7 +45,7 @@ if (isset($_POST['edit_user'])) {
   $query .= "user_email = '{$user_email}', ";
   $query .= "user_password = '{$user_password}' ";
 
-  $query .= "WHERE user_id = {$the_user_id} ";
+  $query .= "WHERE user_id = '{$the_user_id}' ";
 
   $edit_user_query = mysqli_query($connection, $query);
   confirmQuery($edit_user_query);
@@ -72,14 +72,14 @@ if (isset($_POST['edit_user'])) {
 
     <select name="user_role" id="">
 
-      <option value="<?php "subscriber" ?>"><?php echo $user_role; ?></option>
+      <option value="<?php "subscriber"; ?>"><?php echo $user_role; ?></option>
 
       <?php
 
-      if ($user_role == 'admin') {
+      if ($user_role !== 'admin') {
         echo "<option value='subscriber'> subscriber </option>";
       } else {
-        echo "<option value='admin'> Admin </option>";
+        echo "<option value='admin'> admin </option>";
       }
 
 
@@ -111,7 +111,7 @@ if (isset($_POST['edit_user'])) {
   </div>
 
   <div class="form-group">
-    <input class="btn btn-primary" type="submit" name="edit_user" value="Edit User">
+    <input class="btn btn-primary" type="submit" name="edit_user" value="Update Profile">
   </div>
 
 </form>
