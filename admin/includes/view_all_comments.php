@@ -65,7 +65,7 @@
       echo "<td> $comment_date</td>";
 
       echo "<td><a href='comments.php?approve=$comment_id'>Approve</a></td>";
-      echo "<td><a href='comments.php?reject=$comment_id'>Reject</a></td>";
+      echo "<td><a href='comments.php?pending=$comment_id'>Pending</a></td>";
 
 
       echo "<td><a href='comments.php?delete=$comment_id'>Delete</a></td>";
@@ -91,10 +91,10 @@ if (isset($_GET['approve'])) {
 }
 
 
-if (isset($_GET['reject'])) {
+if (isset($_GET['pending'])) {
 
-  $the_comment_id = $_GET['reject'];
-  $query = "UPDATE comments SET comment_status = 'rejected' WHERE comment_id = $the_comment_id ";
+  $the_comment_id = $_GET['pending'];
+  $query = "UPDATE comments SET comment_status = 'pending' WHERE comment_id = $the_comment_id ";
   $reject_comment_query = mysqli_query($connection, $query);
   header("Location: comments.php");
   exit;
