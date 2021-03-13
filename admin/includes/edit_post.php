@@ -124,10 +124,10 @@ if (isset($_POST['update_post'])) {
 
       <?php
 
-      if ($post_status == 'Published') {
-        echo "<option value='Draft'> Draft </option>";
+      if ($post_status == 'published') {
+        echo "<option value='Draft'> draft </option>";
       } else {
-        echo "<option value='Published'> Published </option>";
+        echo "<option value='published'> published </option>";
       }
 
 
