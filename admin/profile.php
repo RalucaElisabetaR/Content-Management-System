@@ -5,6 +5,8 @@ if (isset($_SESSION['username'])) {
   $username = $_SESSION['username'];
   $query = " SELECT * FROM users WHERE username = '{$username}' ";
   $select_user_profile_query = mysqli_query($connection, $query);
+
+
   while ($row = mysqli_fetch_array($select_user_profile_query)) {
     $user_id = $row['user_id'];
     $username = $row['username'];
@@ -19,9 +21,6 @@ if (isset($_SESSION['username'])) {
 
 
 
-?>
-
-<?php
 
 if (isset($_POST['edit_user'])) {
 
@@ -55,6 +54,7 @@ if (isset($_POST['edit_user'])) {
   $edit_user_query = mysqli_query($connection, $query);
   confirmQuery($edit_user_query);
 }
+
 
 
 
