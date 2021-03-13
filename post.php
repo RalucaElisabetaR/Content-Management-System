@@ -50,7 +50,7 @@
                 <p>
                     <?php echo $post_content; ?>
                 </p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
 
                 <hr />
 
@@ -74,7 +74,7 @@
                 $comment_content = $_POST['comment_content'];
 
                 $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status, comment_date ) ";
-                $query .= "VALUES ( $the_post_id, '{$comment_author}', '{$comment_email}', '{$comment_content}', 'rejected', now() )";
+                $query .= "VALUES ( $the_post_id, '{$comment_author}', '{$comment_email}', '{$comment_content}', 'pending', now() )";
 
                 $create_comment_query = mysqli_query($connection, $query);
 

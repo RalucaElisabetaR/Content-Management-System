@@ -49,13 +49,13 @@ if (isset($_POST['update_post'])) {
   $query .= "post_image = '{$post_image}' ";
   $query .= "WHERE post_id = {$the_post_id} ";
 
-  if (empty($post_image)) {
-    $query = "SELECT * FROM posts WHERE posts_id = $the_post_id ";
-    $select_post_image = mysqli_query($connection, $query);
-    while ($row = mysqli_fetch_array($select_post_image)) {
-      $post_image = $row['post_image'];
-    }
-  }
+  // if (empty($post_image)) {
+  //   $query = "SELECT * FROM posts WHERE posts_id = $the_post_id ";
+  //   $select_post_image = mysqli_query($connection, $query);
+  //   while ($row = mysqli_fetch_array($select_post_image)) {
+  //     $post_image = $row['post_image'];
+  //   }
+  // }
 
   $post_title = mysqli_real_escape_string($connection, $post_title);
 
