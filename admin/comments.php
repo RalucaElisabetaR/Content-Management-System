@@ -14,7 +14,7 @@
         <div class="col-lg-12">
 
           <h1 class="page-header">
-            Welcome to Admin,
+            Welcome to Comments,
             <small>User</small>
           </h1>
           <?php

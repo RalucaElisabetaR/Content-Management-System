@@ -35,6 +35,13 @@ if (isset($_POST['update_post'])) {
   $post_tags = $_POST['post_tags'];
 
   move_uploaded_file($post_image_temp, "../images/$post_image");
+  if (empty($post_image)) {
+    $query = "SELECT FROM posts WHERE post_id = $the_post_id";
+    $select_image = mysqli_query($connection, $query);
+    while ($row = mysqli_fetch_array($select_image)) {
+      $post_image = $row['post_image'];
+    }
+  }
 
 
 
@@ -57,7 +64,7 @@ if (isset($_POST['update_post'])) {
   //   }
   // }
 
-  $post_title = mysqli_real_escape_string($connection, $post_title);
+  // $post_title = mysqli_real_escape_string($connection, $post_title);
 
   $update_post = mysqli_query($connection, $query);
 
@@ -81,7 +88,9 @@ if (isset($_POST['update_post'])) {
   </div>
 
   <div class="form-group">
+
     <label for="post_category">Post Category Id</label>
+
     <select name="post_category" id="post_category">
 
       <?php
@@ -95,16 +104,8 @@ if (isset($_POST['update_post'])) {
         $cat_id = $row['cat_id'];
         $cat_title = $row['cat_title'];
 
-
-        if ($cat_id == $post_category_id) {
-
-          echo "<option selected value='$cat_id'>{$cat_title}</option>";
-        } else {
-
-          echo "<option value='$cat_id'>{$cat_title}</option>";
-        }
+        echo "<option value='$cat_id'>{$cat_title}</option>";
       }
-
       ?>
 
 
@@ -125,9 +126,9 @@ if (isset($_POST['update_post'])) {
       <?php
 
       if ($post_status == 'published') {
-        echo "<option value='Draft'> draft </option>";
+        echo "<option value='draft'> Draft </option>";
       } else {
-        echo "<option value='published'> published </option>";
+        echo "<option value='published'> Publish </option>";
       }
 
 
