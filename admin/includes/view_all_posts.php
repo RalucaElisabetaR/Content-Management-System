@@ -50,8 +50,6 @@ if (isset($_POST['checkBoxArray'])) {
     <div class="col-xs-4">
       <input type="submit" name="submit" class="btn btn-success" value="Apply">
       <a class="btn btn-primary" href="add_post.php">Add New Post</a>
-
-
     </div>
 
     <thead>

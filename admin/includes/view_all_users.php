@@ -7,6 +7,10 @@
       <th>LastName</th>
       <th>Email</th>
       <th>Role</th>
+      <th>Change Role</th>
+      <th>Change Role</th>
+      <th>Edit</th>
+      <th>Delete</th>
 
 
     </tr>
