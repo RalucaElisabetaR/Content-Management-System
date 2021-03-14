@@ -19,9 +19,6 @@ if (isset($_POST['checkBoxArray'])) {
         $query = "DELETE FROM posts WHERE post_id = '$postValueId' ";
         $updated_to_delete_status = mysqli_query($connection, $query);
         confirmQuery($updated_to_delete_status);
-
-      default:
-        # code...
         break;
     }
   }
@@ -39,7 +36,9 @@ if (isset($_POST['checkBoxArray'])) {
 
 
   <table class="table table-bordered table-hover">
+
     <div id="bulkOptionsContainer" class="col-xs-4">
+
       <select class="form-control" name="bulk_options" id="" class="">
         <option value="">Select Option</option>
         <option value="published">Publish</option>
@@ -47,9 +46,10 @@ if (isset($_POST['checkBoxArray'])) {
         <option value="delete">Delete</option>
       </select>
     </div>
+
     <div class="col-xs-4">
       <input type="submit" name="submit" class="btn btn-success" value="Apply">
-      <a class="btn btn-primary" href="add_post.php">Add New Post</a>
+      <a class="btn btn-primary" href="posts.php?source=add_post">Add New Post</a>
     </div>
 
     <thead>
