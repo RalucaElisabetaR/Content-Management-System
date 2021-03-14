@@ -50,7 +50,7 @@ body {
 
 .top-nav > li {
 	display: inline-block;
-	float: left;
+	/* float: left; */
 }
 
 .top-nav > li > a {
