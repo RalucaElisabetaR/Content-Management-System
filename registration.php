@@ -17,9 +17,10 @@ if (isset($_POST['submit'])) {
   if (!$select_randsalt_query) {
     die("query failed" . mysqli_error($connection));
   }
+  while ($row = mysqli_fetch_array($select_randsalt_query)) {
+    echo $salt = $row['randSalt'];
+  }
 }
-
-
 
 ?>
 
