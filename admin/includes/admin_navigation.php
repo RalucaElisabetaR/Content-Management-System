@@ -7,14 +7,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">CMS Admin</a>
+            <a class="navbar-brand" href="index.php">Admin</a>
         </div>
+
+
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
-            <li><a href="../index.php">CMS FRONT</a></li>
-
-
-
+            <li><a href="../index.php">BeUnique Solutions</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
                     <?php
@@ -50,7 +49,7 @@
                             <a href="./posts.php">View All Posts</a>
                         </li>
                         <li>
-                            <a href="posts.php?source=add_post">Add Posts</a>
+                            <a href="posts.php?source=add_post">Add Post</a>
                         </li>
                     </ul>
                 </li>
