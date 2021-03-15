@@ -16,7 +16,7 @@
 
           <h1 class="page-header">
             Welcome to Admin,
-            <small> <?php echo $_SESSION['username'] ?> </small>
+            <small> <?php echo $_SESSION['username']; ?> </small>
           </h1>
 
         </div>
@@ -41,7 +41,7 @@
                   $select_all_posts = mysqli_query($connection, $query);
                   $post_count = mysqli_num_rows($select_all_posts);
 
-                  echo " <div class='huge'>{$post_count}</div>"
+                  echo "<div class='huge'>{$post_count}</div>";
                   ?>
 
                   <div>Posts</div>
@@ -71,7 +71,7 @@
                   $select_all_comments = mysqli_query($connection, $query);
                   $comment_count = mysqli_num_rows($select_all_comments);
 
-                  echo " <div class='huge'>{$comment_count}</div>"
+                  echo " <div class='huge'>{$comment_count}</div>";
                   ?>
 
                   <div>Comments</div>
@@ -101,7 +101,7 @@
                   $select_all_users = mysqli_query($connection, $query);
                   $users_count = mysqli_num_rows($select_all_users);
 
-                  echo " <div class='huge'>{$users_count}</div>"
+                  echo " <div class='huge'>{$users_count}</div>";
                   ?>
 
                   <div> Users</div>
@@ -130,7 +130,7 @@
                   $select_all_categories = mysqli_query($connection, $query);
                   $categories_count = mysqli_num_rows($select_all_categories);
 
-                  echo " <div class='huge'>{$categories_count}</div>"
+                  echo " <div class='huge'>{$categories_count}</div>";
                   ?>
 
 
@@ -153,11 +153,11 @@
 
       <?php
 
-      $query = "SELECT * FROM posts WHERE post_status = 'published'";
+      $query = "SELECT * FROM posts WHERE post_status = 'published' ";
       $select_all_published_posts = mysqli_query($connection, $query);
       $post_published_count = mysqli_num_rows($select_all_published_posts);
 
-      $query = "SELECT * FROM posts WHERE post_status = 'draft'";
+      $query = "SELECT * FROM posts WHERE post_status = 'draft' ";
       $select_all_draft_posts = mysqli_query($connection, $query);
       $post_draft_count = mysqli_num_rows($select_all_draft_posts);
 

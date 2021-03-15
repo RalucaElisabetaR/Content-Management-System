@@ -26,13 +26,13 @@ if (isset($_POST['edit_user'])) {
   $user_lastname = $_POST['user_lastname'];
   $user_role = $_POST['user_role'];
 
-  $post_image = $_FILES['image']['name'];
-  $post_image_temp = $_FILES['image']['tmp_name'];
+  // $post_image = $_FILES['image']['name'];
+  // $post_image_temp = $_FILES['image']['tmp_name'];
 
   $username = $_POST['username'];
   $user_email = $_POST['user_email'];
   $user_password = $_POST['user_password'];
-  // $post_date = date('d-m-y');
+  $post_date = date('d-m-y');
 
 
   // move_uploaded_file($post_image_temp, "../images/$post_image ");
@@ -55,7 +55,7 @@ if (isset($_POST['edit_user'])) {
   $query .= "user_email = '{$user_email}', ";
   $query .= "user_password = '{$hashed_password}' ";
 
-  $query .= "WHERE user_id = '{$the_user_id}' ";
+  $query .= "WHERE user_id = {$the_user_id} ";
 
   $edit_user_query = mysqli_query($connection, $query);
   confirmQuery($edit_user_query);
