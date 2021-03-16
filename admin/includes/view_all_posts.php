@@ -100,7 +100,7 @@ if (isset($_POST['checkBoxArray'])) {
 
       <?php
 
-      $query = "SELECT * FROM posts";
+      $query = "SELECT * FROM posts ORDER BY gitpost_id DESC";
       $select_posts = mysqli_query($connection, $query);
       while ($row = mysqli_fetch_assoc($select_posts)) {
         $post_id = $row['post_id'];
