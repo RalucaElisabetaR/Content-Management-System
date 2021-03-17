@@ -12,9 +12,35 @@
     <!-- Blog Entries Column -->
     <div class="col-md-8">
 
-
       <?php
-      $query = "SELECT * FROM posts";
+
+
+      $per_page = 6;
+
+
+      if (isset($_GET['page'])) {
+
+        $page = $_GET['page'];
+      } else {
+        $page = "";
+      }
+      if ($page == "" || $page == 1) {
+        $page_1 = 0;
+      } else {
+        $page_1 = ($page * $per_page) - $per_page;
+      }
+
+
+      $post_query_count = "SELECT * FROM posts";
+      $find_count = mysqli_query($connection, $post_query_count);
+      $count = mysqli_num_rows($find_count);
+
+      $count = ceil($count / $per_page);
+
+
+
+
+      $query = "SELECT * FROM posts LIMIT $per_page";
       $select_all_posts_query = mysqli_query($connection, $query);
 
 
@@ -31,6 +57,8 @@
       ?>
 
           <!-- First Blog Post -->
+
+
           <h2>
             <a href="post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title; ?></a>
           </h2>
@@ -59,11 +87,6 @@
       ?>
 
 
-
-
-
-
-
     </div>
 
     <!-- Blog Sidebar Widgets Column -->
@@ -75,5 +98,58 @@
   <!-- /.row -->
 
   <hr />
+  <?php
 
+
+  ?>
+
+  <nav aria-label="...">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class='page-item' class="page-link" href='?page=<?php
+                                                            if ($page > 1) {
+                                                              echo $page - 1;
+                                                            } else {
+                                                              echo $page;
+                                                            } ?>'>Previous</a>
+
+      </li>
+
+
+      <?php
+
+
+      for ($i = 1; $i < $count; $i++) {
+
+        if ($i == $page) {
+
+          echo "<li class='page-item active'><a class='page-link' href='?page=$i'>{$i}</a></li>";
+        } else {
+
+          echo "<li class='page-item'><a class='page-link' href='?page={$i}'>{$i}</a></li>";
+        }
+      }
+
+
+      ?>
+      <li class="page-item">
+        <a class='page-item' class="page-link" href='?page=<?php
+                                                            if ($page < $count) {
+                                                              echo $page + 1;
+                                                            } else {
+                                                              echo $page;
+                                                            } ?>'>Next</a>
+
+      </li>
+
+      </li>
+
+
+
+
+      </li>
+
+
+    </ul>
+  </nav>
   <?php include "includes/footer.php"; ?>
