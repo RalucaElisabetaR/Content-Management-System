@@ -15,9 +15,10 @@
       <?php
 
 
-      $per_page = 4;
-      if (isset($_GET['page'])) {
+      $per_page = 6;
 
+
+      if (isset($_GET['page'])) {
 
         $page = $_GET['page'];
       } else {
@@ -38,7 +39,8 @@
 
 
 
-      $query = "SELECT * FROM posts LIMIT $page_1, $per_page";
+
+      $query = "SELECT * FROM posts LIMIT $per_page";
       $select_all_posts_query = mysqli_query($connection, $query);
 
 
@@ -96,15 +98,58 @@
   <!-- /.row -->
 
   <hr />
+  <?php
+
+
+  ?>
+
+  <nav aria-label="...">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class='page-item' class="page-link" href='?page=<?php
+                                                            if ($page > 1) {
+                                                              echo $page - 1;
+                                                            } else {
+                                                              echo $page;
+                                                            } ?>'>Previous</a>
+
+      </li>
+
+
+      <?php
+
+
+      for ($i = 1; $i < $count; $i++) {
+
+        if ($i == $page) {
+
+          echo "<li class='page-item active'><a class='page-link' href='?page=$i'>{$i}</a></li>";
+        } else {
+
+          echo "<li class='page-item'><a class='page-link' href='?page={$i}'>{$i}</a></li>";
+        }
+      }
+
+
+      ?>
+      <li class="page-item">
+        <a class='page-item' class="page-link" href='?page=<?php
+                                                            if ($page < $count) {
+                                                              echo $page + 1;
+                                                            } else {
+                                                              echo $page;
+                                                            } ?>'>Next</a>
+
+      </li>
+
+      </li>
 
 
 
-  <ul class="pager">
-    <?php
-    for ($i = 1; $i <= $count; $i++) {
-      echo "<li><a href='index.php?page={$i}'>{$i}</a></li>";
-    }
-    ?>
 
-  </ul>
+      </li>
+
+
+    </ul>
+  </nav>
   <?php include "includes/footer.php"; ?>
