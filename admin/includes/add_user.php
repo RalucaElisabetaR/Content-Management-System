@@ -8,14 +8,13 @@ if (isset($_POST['create_user'])) {
   $user_lastname = $_POST['user_lastname'];
   $user_role = $_POST['user_role'];
 
-  // $post_image = $_FILES['image']['name'];
-  // $post_image_temp = $_FILES['image']['tmp_name'];
+
 
   $username = $_POST['username'];
   $user_email = $_POST['user_email'];
   $user_password = $_POST['user_password'];
-  // $post_date = date('d-m-y');
 
+  $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 10));
 
   // move_uploaded_file($post_image_temp, "../images/$post_image ");
 
@@ -24,7 +23,7 @@ if (isset($_POST['create_user'])) {
   $create_user_query = mysqli_query($connection, $query);
 
   confirmQuery($create_user_query);
-  echo "New User Has Been Created: " . " " . "<a href='users.php'>View All Users</a>";
+  echo "User Created: " . " " . "<a href='users.php'>View All Users</a>";
 }
 
 ?>
