@@ -2,11 +2,7 @@
 
 <div id="wrapper">
 
-  <?php
 
-
-
-  ?>
 
 
   <!-- Navigation -->
@@ -24,6 +20,7 @@
             Welcome to Admin,
             <small> <?php echo $_SESSION['username']; ?> </small>
           </h1>
+
 
         </div>
       </div>
