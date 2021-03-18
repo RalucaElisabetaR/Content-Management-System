@@ -130,7 +130,7 @@ if (isset($_POST['checkBoxArray'])) {
         $query = "SELECT * FROM comments WHERE comment_post_id = $post_id";
         $send_comment_query = mysqli_query($connection, $query);
         $count_comments = mysqli_num_rows($send_comment_query);
-        echo "<td>{$count_comments}</td>";
+        echo "<td><a href=''>{$count_comments}</a></td>";
 
 
         echo "<td>{$post_date}</td>";
