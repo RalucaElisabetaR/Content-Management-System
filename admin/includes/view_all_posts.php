@@ -77,7 +77,7 @@ if (isset($_POST['checkBoxArray'])) {
         <th>Id</th>
         <th>Author</th>
         <th>Title</th>
-        <th>Cathegory</th>
+        <th>Category</th>
         <th>Status</th>
         <th>Image</th>
         <th>Tags</th>
@@ -123,16 +123,26 @@ if (isset($_POST['checkBoxArray'])) {
 
           echo "<td>$cat_title</td>";
         }
-
-
         echo "<td>{$post_status}</td>";
         echo "<td><img width='100' src='../images/$post_image' alt='image'></td>";
         echo "<td>{$post_tags}</td>";
-        echo "<td>{$post_comment_count}</td>";
+
+        $query = "SELECT * FROM comments WHERE comment_post_id = $post_id";
+        $send_comment_query = mysqli_query($connection, $query);
+        $row = mysqli_fetch_array($send_comment_query);
+
+        $count_comments = mysqli_num_rows($send_comment_query);
+
+        echo "<td><a href='post_comments.php?id=$post_id'>{$count_comments}</a></td>";
+
+
         echo "<td>{$post_date}</td>";
         echo "<td><a href='../post.php?p_id={$post_id}'>View Post</a></td>";
+
         echo "<td><a href='posts.php?source=edit_post&p_id={$post_id}'>Edit</a></td>";
+
         echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to delete this?')\" href='posts.php?delete={$post_id}'>Delete</a></td>";
+
         echo "<td><a href='posts.php?reset={$post_id}'>{$post_view_count}</a></td>";
         echo "</tr>";
       }
@@ -155,7 +165,8 @@ if (isset($_GET['delete'])) {
 
 if (isset($_GET['reset'])) {
   $the_post_id = $_GET['reset'];
-  $query = "UPDATE posts SET post_view_count = 0 WHERE post_id =" . mysqli_real_escape_string($connection, $_GET['reset']) . "";
+  $query = "UPDATE posts SET post_view_count = 0 WHERE post_id = $the_post_id ";
+
   $reset_query = mysqli_query($connection, $query);
   header("Location: posts.php");
 }
