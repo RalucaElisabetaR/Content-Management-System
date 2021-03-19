@@ -1,8 +1,8 @@
 <?php
 
 if (isset($_POST['create_post'])) {
-  $post_title = $_POST['title'];
-  $post_author = $_POST['author'];
+  $post_title = $_POST['post_title'];
+  $post_author = $_POST['post_author'];
   $post_category_id = $_POST['post_category'];
   $post_status = $_POST['post_status'];
 
@@ -31,8 +31,8 @@ if (isset($_POST['create_post'])) {
 
 <form action="" method="post" enctype="multipart/form-data">
   <div class="form-group">
-    <label for="title">Post Title</label>
-    <input type="text" class="form-control" name="title">
+    <label for="post_title">Post Title</label>
+    <input type="text" class="form-control" name="post_title">
   </div>
 
   <div class="form-group">
@@ -54,15 +54,36 @@ if (isset($_POST['create_post'])) {
       }
 
       ?>
-
-
     </select>
   </div>
-
   <div class="form-group">
-    <label for="title">Post Author</label>
-    <input type="text" class="form-control" name="author">
+    <label for="users">Users</label>
+    <select name="post_author" id="">
+
+      <?php
+
+      $users_query = "SELECT * FROM users";
+      $select_users = mysqli_query($connection, $users_query);
+      confirmQuery($select_users);
+      while ($row = mysqli_fetch_assoc($select_users)) {
+        $user_id = $row['user_id'];
+        $username = $row['username'];
+        echo "<option value='{$username}'>{$username}</option>";
+      }
+      ?>
+    </select>
+
   </div>
+  <!-- <div class="form-group">
+         <label for="title">Post Author</label>
+          <input type="text" class="form-control" name="author">
+      </div> -->
+
+
+  </select>
+  </div>
+
+
 
   <div class="form-group">
     <select name="post_status" id="">
